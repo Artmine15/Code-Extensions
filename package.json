@@ -1,0 +1,12 @@
+{
+  "name": "com.artmine15.utils.extensions",
+  "version": "1.0.0",
+  "displayName": "Code Extensions",
+  "keywords": [
+    "Collider"
+  ],
+  "author": {
+    "name": "Artmine15"
+  },
+  "description": "Extensions for Unity."
+}
