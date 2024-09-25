@@ -4,20 +4,9 @@ namespace Artmine15.Utils.Extensions
 {
     public enum SpawnAccuracyLevel { None, MustBeInCollider }
 
-    public class Collider2DExtensions
+    public static class Collider2DExtensions
     {
-        private static Collider2D[] _resultColliders = new Collider2D[1];
-
-        private static Vector2 GetRandomPoint(Bounds bounds, BoxCollider2D collider)
-        {
-            //float randomX = Random.Range(bounds.min.x, bounds.min.x);
-            //float randomY = Random.Range(bounds.min.y, bounds.min.y);
-            //return new Vector2(randomX, randomY);
-
-            float randomX = Random.Range(collider.transform.position.x - collider.size.x / 2, collider.transform.position.x + collider.size.x / 2);
-            float randomY = Random.Range(collider.transform.position.y - collider.size.y / 2, collider.transform.position.y + collider.size.y / 2);
-            return new Vector2(randomX, randomY);
-        }
+        private static Collider2D[] _resultColliders = new Collider2D[4];
 
         public static Vector2 GetRandomPointInCollider(BoxCollider2D areaCollider, SpawnAccuracyLevel spawnAccuracyLevel)
         {
@@ -26,20 +15,30 @@ namespace Artmine15.Utils.Extensions
             switch (spawnAccuracyLevel)
             {
                 case SpawnAccuracyLevel.None:
-                    return GetRandomPoint(bounds, areaCollider);
+                    return GetRandomPoint(areaCollider);
                 case SpawnAccuracyLevel.MustBeInCollider:
                     do
                     {
-                        randomPoint = GetRandomPoint(bounds, areaCollider);
+                        randomPoint = GetRandomPoint(areaCollider);
                     } while (!IsPointInCollider(randomPoint, areaCollider));
                     return randomPoint;
             }
             return Vector2.zero;
         }
 
+        private static Vector2 GetRandomPoint(BoxCollider2D boxCollider)
+        {
+            //float randomX = Random.Range(boxCollider.transform.position.x - boxCollider.size.x / 2, boxCollider.transform.position.x + boxCollider.size.x / 2);
+            //float randomY = Random.Range(boxCollider.transform.position.y - boxCollider.size.y / 2, boxCollider.transform.position.y + boxCollider.size.y / 2);
+            Bounds bounds = boxCollider.bounds;
+            float randomX = Random.Range(bounds.min.x, bounds.max.x);
+            float randomY = Random.Range(bounds.min.y, bounds.max.y);
+            return new Vector2(randomX, randomY);
+        }
+
         private static bool IsPointInCollider(Vector2 point, BoxCollider2D collider)
         {
-            return collider.OverlapPoint(point);
+            return collider.bounds.Contains(point);
         }
 
         public static bool IsObjectOverlap(Collider2D objectCollider)
