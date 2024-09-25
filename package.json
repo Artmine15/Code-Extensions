@@ -1,6 +1,6 @@
 {
   "name": "com.artmine15.utils.extensions",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "displayName": "Code Extensions",
   "keywords": [
     "Collider"
@@ -8,5 +8,5 @@
   "author": {
     "name": "Artmine15"
   },
-  "description": "Helpful extensions for Unity. With that you can find a random points in box colliders..."
+  "description": "Find a random points in box colliders."
 }
