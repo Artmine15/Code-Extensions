@@ -1,6 +1,6 @@
 {
   "name": "com.artmine15.utils.extensions",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "displayName": "Code Extensions",
   "keywords": [
     "Collider"
@@ -8,5 +8,5 @@
   "author": {
     "name": "Artmine15"
   },
-  "description": "Find a random points in box colliders."
+  "description": "Various extensions\n- Activate and Deactivate gameObjects.\n- Find array last object.\n- Rotate to target by Z axis via Atan2.\n- Find a random points in box colliders."
 }
