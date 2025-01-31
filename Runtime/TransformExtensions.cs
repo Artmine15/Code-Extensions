@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Artmine15.Packages.Utils.Extensions
+namespace Artmine15.Extensions
 {
     public static class TransformExtensions
     {
