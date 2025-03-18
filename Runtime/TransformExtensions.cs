@@ -8,7 +8,6 @@ namespace Artmine15.Extensions
         /// Rotate transform using Mathf.Atan2() and Quaternion.RotateTowards().
         /// </summary>
         /// <param name="fromAngle">Start angle that Quaternion.RotateTowards() using.</param>
-        
         public static void RotateToTargetByZ(this Transform transform, Quaternion fromAngle, Vector2 direction, float maxDegreesDelta = 360, float zRotationFactor = 0)
         {
             //Quaternion angle = Quaternion.Euler(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg + ZRotationFactor);
